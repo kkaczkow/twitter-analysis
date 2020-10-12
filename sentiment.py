@@ -19,6 +19,11 @@ class TweetStreamListener(StreamListener):
         # decode json
         dict_data = json.loads(data)
 
+        if ('text' not in dict_data.keys()):
+            print("No text key")
+            print(dict_data)
+            return
+
         # pass tweet into TextBlob
         tweet = TextBlob(dict_data["text"])
 
